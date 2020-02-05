@@ -25,7 +25,7 @@ SECRET_KEY = '7(zau-i(xutwm93m(ii$g!=9x)_p%g8$sq3zt-pbxrtr05k!&_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["10.20.121.73"]
 
 
 # Application definition
@@ -38,19 +38,31 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     # 'django.contrib.staticfiles',
     'restaurantMenu',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    # 'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'justReturn.urls'
+CORS_ORIGIN_WHITELIST = [
+    "https://example.com",
+    "https://sub.example.com",
+    "http://localhost:8000",
+    "http://10.20.121.73:8000",
+    "http://localhost:3000",
+]
+
+CORS_ORIGIN_ALLOW_ALL=True
 
 TEMPLATES = [
     {

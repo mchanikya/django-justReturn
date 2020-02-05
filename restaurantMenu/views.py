@@ -7,10 +7,28 @@ from django.http import JsonResponse
 
 from django.shortcuts import render
 
+# from django.views.decorators.csrf import ensure_csrf_cookie
+# from django.views.decorators.csrf import csrf_exempt
 # Create your views here.
+# @ensure_csrf_cookie
+# @csrf_exempt
 def index(request):
-	# question_list = Question.objects.order_by('-pub_date')[:5]
-	return render(request,"restaurantMenu/index.html")
+	if request.method == 'POST':
+		print("POST Request")
+		print(request.path)
+		print(request.content_type)
+		print(request.method)
+		# print(request.META)
+		print(request.content_params)
+
+	if request.method == 'PUT':
+		print("Put Request")
+		print(request.path)
+		print(request.content_type)
+		print(request.method)
+		# print(request.META)
+		print(request.content_params)	# question_list = Question.objects.order_by('-pub_date')[:5]
+	return render(request,"restaurantMenu/index.html",{"name":"Chanikya","city":"Bangalore"})
 	# pass
 
 def getJson(request):

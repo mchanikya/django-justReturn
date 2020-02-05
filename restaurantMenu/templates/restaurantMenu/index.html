@@ -1,1 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Restaurant App in Django</title>
+</head>
+<body>
 <h1>Hello</h1>
+	{{name|upper}} from
+	{{city}}
+	{% comment "Optional note" %}
+   		<p>Commented out text with </p>
+	{% endcomment %}
+	<br>
+	{% for o in "Hello" %}
+	    <tr class="{% cycle 'row1' 'row2' %}">
+	        {{o}}...
+	    </tr>
+	{% endfor %}
+</body>
+</html>
